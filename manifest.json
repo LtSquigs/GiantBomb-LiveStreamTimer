@@ -1,0 +1,49 @@
+{
+  "name": "WM Live Stream Time Stamp",
+  "version": "0.1",
+  
+  "description": "Puts a time stamp on the live stream page telling you how long the stream has been going.",
+  
+  "permissions": [
+    "tabs", 
+	"http://www.tested.com/live/", 
+	"http://www.tested.com/chat/",  
+	"http://www.giantbomb.com/live/", 
+	"http://www.giantbomb.com/cha/t",  
+	"http://www.screened.com/live/", 
+	"http://www.screened.com/chat/",
+	"http://api.tested.com/*",
+	"http://api.giantbomb.com/*",
+	"http://api.screened.com/*",
+	"http://api.justin.tv/*"
+  ],
+  "icons": { "16": "icon16.png",
+			 "48": "icon48.png",
+			 "128": "icon128.png" },
+  "content_scripts": [
+    {
+      "matches": [
+					"http://www.tested.com/live/",
+					"http://www.tested.com/chat/"
+				],
+      "js": ["jquery.js", "timerTested.js"]
+
+    },
+    {
+      "matches": [
+					"http://www.giantbomb.com/live/",
+					"http://www.giantbomb.com/chat/"
+				],
+      "js": ["jquery.js", "timerGiantbomb.js"]
+
+    },
+    {
+      "matches": [
+					"http://www.screened.com/live/",
+					"http://www.screened.com/chat/"
+				],
+      "js": ["jquery.js", "timerScreened.js"]
+
+    }
+  ]
+}
